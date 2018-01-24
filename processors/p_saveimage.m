@@ -6,6 +6,7 @@ if (ischar(params))&&(strcmp(params,'spec'))
 end;
 
 X=arrayify(params.array);
+params.title='';
 run_processor(X,params.image_out,params.title);
 
 function run_processor(X,fname,title0)
@@ -26,7 +27,7 @@ outputs={};
 outputs{end+1}=struct('name','image_out');
 
 parameters={};
-parameters{end+1}=struct('name','title');
+%parameters{end+1}=struct('name','title','optional',true,'default_value','');
 
 opts=struct;
 
