@@ -5,8 +5,9 @@ MAINTAINER Jeremy Magland
 # Node JS
 RUN apt-get update && apt-get install -y nodejs nodejs-legacy
 
-# Octave
+# Octave (and transfig for fig2dev)
 RUN apt-get update && apt-get install -y octave
+RUN apt-get update && apt-get install -y transfig
 
 ADD . /package
 
