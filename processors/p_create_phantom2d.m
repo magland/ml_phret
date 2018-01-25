@@ -8,21 +8,24 @@ end;
 name=params.name;
 N=str2num(params.N);
 oversamp=str2num(params.oversamp);
-X=create_phantom2d(name,N,oversamp);
+[X,support_rect]=create_phantom2d(name,N,oversamp);
 
-disp(size(X));
-disp(params.phantom_out);
 writemda32(X,params.phantom_out);
+
+if (~isempty(params.support_rect_out))
+    writemda32(support_rect,params.support_rect_out);
+end;
 
 function spec=get_spec
 
 name='phret.create_phantom2d';
-version='0.11';
+version='0.12';
 
 inputs={};
 
 outputs={};
 outputs{end+1}=struct('name','phantom_out');
+outputs{end+1}=struct('name','support_rect_out','optional',true);
 
 parameters={};
 parameters{end+1}=struct('name','name');
