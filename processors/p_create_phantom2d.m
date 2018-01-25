@@ -7,23 +7,16 @@ end;
 
 name=params.name;
 N=str2num(params.N);
-X=run_processor(name,N);
+X=create_phantom2d(name,N);
 
 disp(size(X));
 disp(params.phantom_out);
 writemda32(X,params.phantom_out);
 
-function X=run_processor(name,N)
-
-if (strcmp(name,'disk'))
-    X=rand(N,N);
-else
-    error('Unknown name: %s',name);
-end;
-
 function spec=get_spec
 
 name='phret.create_phantom2d';
+version='0.11';
 
 inputs={};
 
@@ -38,6 +31,7 @@ opts=struct;
 
 spec=struct( ...
     'name',name, ...
+    'version',version, ...
     'inputs',{inputs}, ...
     'outputs',{outputs}, ...
     'parameters',{parameters}, ...
