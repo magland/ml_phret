@@ -1,8 +1,9 @@
-function X=create_phantom2d(name,N)
+function X=create_phantom2d(name,N,oversamp)
 
 if (strcmp(name,'disk'))
-    X=zeros(N,N);
-    [GX,GY]=ndgrid(linspace(-1,1,N),linspace(-1,1,N));
+    X=zeros(N*oversamp,N*oversamp);
+    tmp=linspace(-oversamp,oversamp,N*oversamp);
+    [GX,GY]=ndgrid(tmp,tmp);
     GR=sqrt(GX.^2+GY.^2);
     X=X+1*(GR<=1);
 else

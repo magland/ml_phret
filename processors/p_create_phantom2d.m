@@ -7,7 +7,8 @@ end;
 
 name=params.name;
 N=str2num(params.N);
-X=create_phantom2d(name,N);
+oversamp=str2num(params.oversamp);
+X=create_phantom2d(name,N,oversamp);
 
 disp(size(X));
 disp(params.phantom_out);
@@ -26,6 +27,7 @@ outputs{end+1}=struct('name','phantom_out');
 parameters={};
 parameters{end+1}=struct('name','name');
 parameters{end+1}=struct('name','N');
+parameters{end+1}=struct('name','oversamp','optional',true,'default_value',1);
 
 opts=struct;
 
