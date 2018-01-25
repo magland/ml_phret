@@ -19,7 +19,7 @@ end;
 function spec=get_spec
 
 name='phret.create_phantom2d';
-version='0.12';
+version='0.13';
 
 inputs={};
 
