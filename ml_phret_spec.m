@@ -45,7 +45,5 @@ for ii=1:length(pnames)
     struct_string=[struct_string,"'",pname,"','$",pname,"$'"];
 end;
 
-disp(curpath);
-disp(struct_string);
 str=sprintf("addpath('%s/processors'); p_saveimage(struct(%s));",curpath,struct_string);
 exe_command=sprintf('octave --eval "%s"',str);
